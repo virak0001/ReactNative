@@ -17,9 +17,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const RegistrationScreen = ({navigation}) => {
   const [inputs, setInputs] = React.useState({
     email: '',
-    fullname: '',
-    phone: '',
     password: '',
+    confirmPassword: '',
   });
   const [errors, setErrors] = React.useState({});
   const [loading, setLoading] = React.useState(false);
@@ -36,21 +35,14 @@ const RegistrationScreen = ({navigation}) => {
       isValid = false;
     }
 
-    if (!inputs.fullname) {
-      handleError('Please input fullname', 'fullname');
-      isValid = false;
-    }
-
-    if (!inputs.phone) {
-      handleError('Please input phone number', 'phone');
-      isValid = false;
-    }
-
     if (!inputs.password) {
       handleError('Please input password', 'password');
       isValid = false;
-    } else if (inputs.password.length < 5) {
-      handleError('Min password length of 5', 'password');
+    } else if (inputs.password.length < 7) {
+      handleError('Min password length of 8', 'password');
+      isValid = false;
+    } else if (inputs.password !== inputs.confirmPassword) {
+      handleError('Password incorrect', 'password');
       isValid = false;
     }
 
@@ -100,24 +92,6 @@ const RegistrationScreen = ({navigation}) => {
           />
 
           <Input
-            onChangeText={text => handleOnchange(text, 'fullname')}
-            onFocus={() => handleError(null, 'fullname')}
-            iconName="account-outline"
-            label="Full Name"
-            placeholder="Enter your full name"
-            error={errors.fullname}
-          />
-
-          <Input
-            keyboardType="numeric"
-            onChangeText={text => handleOnchange(text, 'phone')}
-            onFocus={() => handleError(null, 'phone')}
-            iconName="phone-outline"
-            label="Phone Number"
-            placeholder="Enter your phone no"
-            error={errors.phone}
-          />
-          <Input
             onChangeText={text => handleOnchange(text, 'password')}
             onFocus={() => handleError(null, 'password')}
             iconName="lock-outline"
@@ -126,9 +100,18 @@ const RegistrationScreen = ({navigation}) => {
             error={errors.password}
             password
           />
+
+          <Input
+            onChangeText={text => handleOnchange(text, 'confirmPassword')}
+            onFocus={() => handleError(null, 'confirmPassword')}
+            iconName="lock-outline"
+            label="confirmPassword"
+            placeholder="Enter your confirmPassword"
+            error={errors.confirmPassword}
+            confirmPassword
+          />
           <Button title="Register" onPress={validate} />
           <Text
-            onPress={() => navigation.navigate('LoginScreen')}
             style={{
               color: COLORS.black,
               fontWeight: 'bold',
