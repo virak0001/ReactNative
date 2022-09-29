@@ -3,7 +3,6 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import List from '../components/Expenses/List';
 import Navigate from '../components/Navigatoin';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 const HomeScree = ({navigation}) => {
   const [userDetails, setUserDetails] = React.useState();
   React.useEffect(() => {
@@ -28,9 +27,6 @@ const HomeScree = ({navigation}) => {
   return (
     <View className="bg-blue-300 h-screen">
       <Navigate />
-      <Icon.Button name="google" solid>
-        Login with google
-      </Icon.Button>
       <Text className="text-white text-center text-2xl">Months</Text>
       <View className="flex flex-row justify-between px-10">
         <Text className="text-xl text-white">X</Text>
