@@ -13,9 +13,7 @@ const App = () => {
   const [initialRouteName, setInitialRouteName] = React.useState('');
 
   React.useEffect(() => {
-    setTimeout(() => {
-      authUser();
-    }, 2000);
+    authUser();
   }, []);
 
   const authUser = async () => {

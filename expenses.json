@@ -1,0 +1,79 @@
+[
+    {
+        "id": "1",
+        "category": "Shop",
+        "expensed": "46%",
+        "transaction": "15",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "2",
+        "category": "Healt",
+        "expensed": "20%",
+        "transaction": "2",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "3",
+        "category": "Sport",
+        "expensed": "5%",
+        "transaction": "2",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "4",
+        "category": "Study",
+        "expensed": "20%",
+        "transaction": "4",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "5",
+        "category": "Study",
+        "expensed": "20%",
+        "transaction": "4",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "6",
+        "category": "Study",
+        "expensed": "20%",
+        "transaction": "4",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "7",
+        "category": "Study",
+        "expensed": "20%",
+        "transaction": "4",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "8",
+        "category": "Study",
+        "expensed": "20%",
+        "transaction": "4",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "9",
+        "category": "Study",
+        "expensed": "20%",
+        "transaction": "4",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "10",
+        "category": "Study",
+        "expensed": "20%",
+        "transaction": "4",
+        "type": "EXPENXES"
+    },
+    {
+        "id": "11",
+        "category": "Study",
+        "expensed": "20%",
+        "transaction": "4",
+        "type": "EXPENXES"
+    }
+]

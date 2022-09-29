@@ -112,6 +112,7 @@ const RegistrationScreen = ({navigation}) => {
           />
           <Button title="Register" onPress={validate} />
           <Text
+            onPress={() => navigation.navigate('LoginScreen')}
             style={{
               color: COLORS.black,
               fontWeight: 'bold',
