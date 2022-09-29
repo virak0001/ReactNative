@@ -1,12 +1,11 @@
 import React from 'react';
 import {FlatList, TouchableHighlight} from 'react-native';
-import expense from '../../../../expenses.json';
 import Item from './Item';
-const List = () => {
+const List = ({data}) => {
   return (
     <FlatList
       initialNumToRender={4}
-      data={expense}
+      data={data}
       renderItem={({item, separators}) => (
         <TouchableHighlight
           key={item.id}
@@ -17,7 +16,7 @@ const List = () => {
             key={item.id}
             id={item.id}
             category={item.category}
-            expensed={item.expensed}
+            used={item.used}
           />
         </TouchableHighlight>
       )}

@@ -1,8 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import {Text, View} from 'react-native';
-import List from '../components/Expenses/List';
+import List from '../components/HomeScreen/List';
 import Navigate from '../components/Navigatoin';
+import expense from '../../../expenses.json';
 const HomeScree = ({navigation}) => {
   const [userDetails, setUserDetails] = React.useState();
   React.useEffect(() => {
@@ -48,7 +49,7 @@ const HomeScree = ({navigation}) => {
         </View>
       </View>
       <View className="bg-gray-100">
-        <View className="bg-white mt-10 rounded-t-[50px]">
+        <View className="bg-white mt-10 h-96 rounded-t-[50px]">
           <View className="flex flex-row justify-between mt-5 px-10 items-center">
             <View>
               <Text className="text-lg">Expenses</Text>
@@ -60,7 +61,7 @@ const HomeScree = ({navigation}) => {
             </View>
             <Text>@</Text>
           </View>
-          <List />
+          <List data={expense} />
         </View>
       </View>
     </View>

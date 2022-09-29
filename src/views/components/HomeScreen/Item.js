@@ -6,7 +6,7 @@ const Item = props => {
       <View className="h-16 w-16 rounded-full bg-black" />
       <View>
         <Text>{props.category}</Text>
-        <Text>{props.expensed} budget</Text>
+        <Text>{props.used} budget</Text>
       </View>
       <View>
         <Text>{props.id}</Text>
