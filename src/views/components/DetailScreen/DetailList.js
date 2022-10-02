@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList, TouchableHighlight} from 'react-native';
 import Item from './Item';
-const List = ({data, navigation}) => {
+const DetailList = ({data}) => {
   return (
     <FlatList
       initialNumToRender={7}
@@ -15,13 +15,13 @@ const List = ({data, navigation}) => {
           <Item
             key={item.id}
             id={item.id}
-            category={item.category}
-            used={item.used}
-            navigation={navigation}
+            title={item.product}
+            price={item.price}
+            date={item.date}
           />
         </TouchableHighlight>
       )}
     />
   );
 };
-export default List;
+export default DetailList;

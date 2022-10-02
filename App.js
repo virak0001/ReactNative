@@ -4,8 +4,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from './src/views/screens/LoginScreen';
 import RegistrationScreen from './src/views/screens/RegistrationScreen';
 import HomeScreen from './src/views/screens/HomeScreen';
+import DetailScreen from './src/views/screens/DetailScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loader from './src/views/components/Loader';
+import CreateNewExpense from './src/views/screens/CreateNewExpense';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,6 +51,11 @@ const App = () => {
             />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
+            <Stack.Screen name="DetailScreen" component={DetailScreen} />
+            <Stack.Screen
+              name="CreateNewExpense"
+              component={CreateNewExpense}
+            />
           </Stack.Navigator>
         </>
       )}

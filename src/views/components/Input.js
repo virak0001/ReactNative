@@ -63,7 +63,7 @@ const style = StyleSheet.create({
   label: {
     marginVertical: 5,
     fontSize: 14,
-    color: COLORS.grey,
+    color: COLORS.black,
   },
   inputContainer: {
     height: 55,

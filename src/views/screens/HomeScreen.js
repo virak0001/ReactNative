@@ -6,7 +6,17 @@ import Navigate from '../components/Navigatoin';
 import expense from '../../../expenses.json';
 const HomeScree = ({navigation}) => {
   const [userDetails, setUserDetails] = React.useState();
+  const [tab, setTab] = React.useState('EXPENSES');
+  const [data, setData] = React.useState([]);
+
+  const changeTab = string => {
+    const filterData = expense.filter(item => item.type === string);
+    setData(filterData);
+    setTab(string);
+  };
   React.useEffect(() => {
+    const filterData = expense.filter(item => item.type === 'EXPENSES');
+    setData(filterData);
     getUserData();
   }, []);
 
@@ -25,20 +35,38 @@ const HomeScree = ({navigation}) => {
     navigation.navigate('LoginScreen');
   };
 
+  const month = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  const d = new Date();
+  let name = month[d.getMonth()];
+
   return (
-    <View className="bg-blue-300 h-screen">
+    <View className="bg-blue-300 h-full">
       <Navigate />
-      <Text className="text-white text-center text-2xl">Months</Text>
+      <Text className="text-white text-center text-2xl font-bold">{name}</Text>
       <View className="flex flex-row justify-between px-10">
         <Text className="text-xl text-white">X</Text>
         <Text className="text-xl text-white">X</Text>
       </View>
-      <Text className="text-3xl text-center text-white">150$</Text>
+      <Text className="text-5xl text-center text-white font-bold">150$</Text>
       <View className="bg-gray-100 mt-5 rounded-t-[50px]">
         <View className="mt-10 px-10">
           <View className="flex flex-row justify-between">
-            <Text className="text-lg">Monthly Budget 150$</Text>
-            <Text className="text-lg">64%</Text>
+            <Text className="text-lg font-bold">Monthly Budget 150$</Text>
+            <Text className="text-lg font-bold">64%</Text>
           </View>
           <View className="w-full h-2 bg-gray-400 rounded-lg">
             <View
@@ -49,19 +77,34 @@ const HomeScree = ({navigation}) => {
         </View>
       </View>
       <View className="bg-gray-100">
-        <View className="bg-white mt-10 h-96 rounded-t-[50px]">
+        <View className="bg-white mt-10 h-full rounded-t-[50px]">
           <View className="flex flex-row justify-between mt-5 px-10 items-center">
             <View>
-              <Text className="text-lg">Expenses</Text>
-              <View className="w-full h-1 bg-gray-500 rounded-md" />
+              <Text
+                className="text-lg font-bold"
+                onPress={() => changeTab('EXPENSES')}>
+                Expenses
+              </Text>
+              {tab === 'EXPENSES' ? (
+                <View className="w-full h-1 bg-blue-500 rounded-md" />
+              ) : (
+                ''
+              )}
             </View>
             <View>
-              <Text className="text-lg">Income</Text>
-              <View className="w-full h-1 bg-gray-500 rounded-md" />
+              <Text
+                className="text-lg font-bold"
+                onPress={() => changeTab('INCOME')}>
+                Income
+              </Text>
+              {tab === 'INCOME' ? (
+                <View className="w-full h-1 bg-blue-500 rounded-md" />
+              ) : (
+                ''
+              )}
             </View>
-            <Text>@</Text>
           </View>
-          <List data={expense} />
+          <List data={data} navigation={navigation} />
         </View>
       </View>
     </View>
